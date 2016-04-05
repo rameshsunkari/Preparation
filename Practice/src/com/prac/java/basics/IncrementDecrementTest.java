@@ -32,7 +32,14 @@ public class IncrementDecrementTest {
 	public static void main(String[] args) {
 		B b = new B();
 		System.out.println(b.i);
-
+		
+		int i = 0;
+		int j = 2;
+		do{
+			i=++i;
+			j--;
+		} while(j>0);
+		System.out.println(i);
 	}
 
 }

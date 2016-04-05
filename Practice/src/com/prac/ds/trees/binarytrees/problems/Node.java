@@ -47,8 +47,10 @@ class Node {
 	
 	@Override
 	public String toString() {
-		return "Node [data=" + data + "]";
+		return "Node [data=" + data + ", nextRight=" + nextRight + "]";
 	}
+	
+	
 	
 	
 }

@@ -4,21 +4,24 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Sibling {
+	
 
 	public static void main(String[] args) {
-		Node rootNode = null;
 
-		rootNode = addNode(rootNode, 10, true);
-		rootNode = addNode(rootNode, 5, true);
-		rootNode = addNode(rootNode, 2, true);
-
-		rootNode = addNode(rootNode, 30, true);
-		rootNode = addNode(rootNode, 40, true);
-
-		linkNodesAtSameLevelWithExtraSpace(rootNode);
-		System.out.println(rootNode);
+		Node root = new Node(1);
+		root.left = new Node(2);
+		root.right = new Node(3);
+		root.left.left = new Node(4);
+		root.left.right = new Node(5);
+		root.right.left = new Node(6);
+		root.right.right = new Node(7);
+		
+		linkNodesAtSameLevelWithExtraSpace(root);
+		
+		System.out.println(root);
+		System.out.println(root.left);
 	}
-
+	
 	private static void linkNodesAtSameLevelWithExtraSpace(Node rootNode) {
 		if (rootNode == null)
 			return;
@@ -55,29 +58,4 @@ public class Sibling {
 		}
 	}
 
-	private static Node addNode(Node rootNode, int i, boolean isRootNode) {
-		if (rootNode == null) {
-			return new Node(i);
-		} else {
-			if (i > rootNode.getData()) {
-				if (isRootNode) {
-					Node nodeToAdd = addNode(rootNode.getRight(), i, isRootNode);
-					rootNode.setRight(nodeToAdd);
-				} else {
-					Node nodeToAdd = addNode(rootNode.getLeft(), i, isRootNode);
-					rootNode.setLeft(nodeToAdd);
-				}
-
-			} else {
-				if (isRootNode) {
-					Node nodeToAdd = addNode(rootNode.getLeft(), i, isRootNode);
-					rootNode.setLeft(nodeToAdd);
-				} else {
-					Node nodeToAdd = addNode(rootNode.getRight(), i, isRootNode);
-					rootNode.setRight(nodeToAdd);
-				}
-			}
-		}
-		return rootNode;
-	}
 }

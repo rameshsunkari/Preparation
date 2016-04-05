@@ -17,7 +17,6 @@ public class PrintDistance {
 				// System.out.println(root.data);
 				return x + 1;
 			}
-			return 0;
 		}
 		return 0;
 	}
